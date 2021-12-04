@@ -1,0 +1,12 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    double dollar = 1.0;
+    cout << "Please enter a dollar amount: ";
+    cin >> dollar;
+    const double BTC = dollar * .0000966;
+    const double ETH = dollar * .0027;
+    cout << dollar << " dollars = " << BTC << " Bitcoin\n" << dollar << " dollars = " << ETH << " Ethereum";
+    return 0;
+}
