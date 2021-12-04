@@ -1,3 +1,10 @@
+/*************************************
+Creating a function to return Fahrenheit 
+from Celsius input.
+Scott Shaulis
+10-21-2020
+*************************************/
+
 #include <iostream>
 #include <string>
 #include <iomanip>
