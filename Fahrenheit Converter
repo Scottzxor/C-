@@ -1,0 +1,31 @@
+#include <iostream>
+#include <string>
+#include <iomanip>
+
+using namespace std;
+
+double fahrenheitConverter(double); //double check that the prototype doesn't exist within the function definition.
+
+double fahrenheitConverter(double x) {
+
+       double c = x;
+       double f = 0;
+
+       c = (c * (9 / 5) + 32);
+
+       return c;
+
+       }
+
+int main() {
+
+       cout << "Celsius " << "      Fahrenheit " << endl;
+       cout << "--------------------------" << endl;
+
+       for (double i = 0; i <= 60; i+=6) {
+
+              cout << setprecision(0) << setw(7) << i << "             "; //Set precision was applying to this line as well. I know if you decalre it initially, it will be used in all subsequent lines; but, dunno what happened there.
+              cout << fixed << setprecision(1) << fahrenheitConverter(i) << endl;
+       }
+
+}
