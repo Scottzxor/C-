@@ -1,0 +1,99 @@
+#include <string>
+#include <iomanip>
+#include <iostream>
+
+using namespace std;
+
+int totalSales(int[], int);
+int mostExpensiveCandy(int[], int);
+int leastExpensiveCandy(int[], int);
+
+int main() {
+	const int CANDYCOUNT = 5;
+	const string candyArray[CANDYCOUNT]{ "Snickers", //Not sure if a Const array should be capitalized or not.
+										 "Reece\'s Pieces",
+										 "Twizzlers",
+										 "Nerds",
+										 "Mini Hershey bars"
+	}; //Parrelell array #1.
+
+	int candyNum[CANDYCOUNT]{};
+
+
+	for (int i = 0; i < CANDYCOUNT; i++) {
+
+		cout << "Enter the sales for " << candyArray[i] << endl;
+
+		if (cin >> candyNum[i]) {
+
+			while (candyNum[i] < 0) {
+				cout << "I hope you don't actually have negative candies. " << endl << "Please add a positive number of candies: " ;
+				cin >> candyNum[i];
+			}
+		}
+
+		else {
+			cout << "Enter the sales for " << candyArray[i] << endl;
+		}
+	}
+
+	cout << setw(20) << "Candy Name" << "    Candy Sales" << endl;
+	cout << "-----------------------------------" << endl;
+	cout << candyArray[0] << setw(27) << candyNum[0] << endl;
+	cout << candyArray[1] << setw(21) << candyNum[1] << endl;
+	cout << candyArray[2] << setw(26) << candyNum[2] << endl;
+	cout << candyArray[3] << setw(30) << candyNum[3] << endl;
+	cout << candyArray[4] << setw(18) << candyNum[4] << endl << endl;
+
+
+
+	cout << "Total sales: " << totalSales(candyNum, CANDYCOUNT) << endl;
+
+	cout << "Highest selling candy: " << candyArray[mostExpensiveCandy(candyNum, CANDYCOUNT)] << endl;
+
+	cout << "Lowest selling candy: " << candyArray[leastExpensiveCandy(candyNum, CANDYCOUNT)] << endl;
+
+
+	return 0;
+}
+
+/*************************************************************************
+								Functions
+*************************************************************************/
+
+int totalSales(int x[], int y) {
+
+	int sum = 0;
+
+	for (int j = 0; j < y; j++) {
+		sum += x[j];
+	}
+	return sum;
+}
+
+int mostExpensiveCandy(int x[], int y) {
+	int highest = x[0];
+	int highestPosition = 0;
+
+	for (int i = 0; i <= y; i++) {
+		if (x[i] > highest) {
+			highest = x[i]; 
+			highestPosition = i;
+		}
+	}
+	return highestPosition;
+}
+
+int leastExpensiveCandy(int x[], int y) { //I really have no idea what's going wrong. Highest works fine, but lowest destroys everything with one simple change.
+	int lowest = x[0];
+	int lowestPosition = 0;
+	y = 0;
+
+	for (int i = 0; i <= y; i++) {
+		if (x[i] < lowest) {
+			lowest = x[i];
+			lowestPosition = i;
+		}
+	}
+	return lowestPosition;
+}
